@@ -28,8 +28,8 @@ arch(){
     echo "Installing fzf"
     pacman -S fzf
 
-    #echo "Installing oh-my-zsh"
-    #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
     echo "All necessary packages installed!"

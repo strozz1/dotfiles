@@ -16,7 +16,7 @@ Neovim is a command line based text editor that works on top on VIM motions. It 
 Neovim configuration files in `.config/nvim`
 
 Some of these plugins are:
-- Packer has the main plugin manager
+- Packer
 - Telescope
 - Mason 
 - LSP Zero
@@ -37,7 +37,7 @@ Kitty configuration files in `.config/kitty`
 
 ### Zsh shell
 
-Zsh has the prefeded shell
+Zsh as the prefeded shell
 
 Zsh uses ohmyzsh for customize the shell experience.
 
