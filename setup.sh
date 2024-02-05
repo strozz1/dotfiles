@@ -1,10 +1,23 @@
 
 
-
+update(){
+    echo "TODO update system"
+}
 
 arch(){
     echo "Executing setup for Arch Linux"
-    echo "Some packages are necessary to install"
+    echo "Do you want to update your system? 
+    Warning: this may cause some errors, so make sure to have a backup of your system
+    (y/n)"
+    read update
+    case $update in  
+        y|Y|yes|YES) echo "Updating your system" 
+            update
+            ;; 
+        *) echo "System update will not take place."
+            ;; 
+    esac
+    echo "Installing some necessary packages"
 
     echo "Installing neovim"
     pacman -S neovim
@@ -12,6 +25,9 @@ arch(){
     pacman -S tmux
     echo "Installing Kitty Terminal"
     pacman -S kitty
+    echo "Installing fzf"
+    pacman -S fzf
+
     #echo "Installing oh-my-zsh"
     #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -33,9 +49,14 @@ move_files(){
 
 
 
-echo "----Setup initialized. Make sure you are in sudo mode!!!"
 
-echo "----Which platform are you in?
+
+if [ $UID -ne 0 ]; then
+    echo "ERROR: you need to be in sudo mode!"
+    exit;
+fi
+echo "Setup initialized."
+echo "Which platform are you in?
 1. Arch
 2. Windows 
 3. Linux
