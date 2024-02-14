@@ -3,6 +3,7 @@
 
 ## Setup
 :warning: **Setup script is not ready**
+
 For setting up this environment you need to execute the `setup.sh` script in the repository
 
 ## List of dotfiles
