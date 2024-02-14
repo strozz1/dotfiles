@@ -2,7 +2,7 @@
 
 
 ## Setup
-:warning: **Setup script is not ready**
+:warning: **Setup script is not ready**: not use!
 
 For setting up this environment you need to execute the `setup.sh` script in the repository
 
