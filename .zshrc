@@ -74,8 +74,12 @@ plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highl
 
 source $ZSH/oh-my-zsh.sh
 alias vim=\"nvim\"
+alias pacman="sudo pacman"
 # User configuration
 
+#change monitor layout
+
+sh ~/develop/scripts/monitor_config.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

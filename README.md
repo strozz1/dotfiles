@@ -2,7 +2,14 @@
 
 
 ## Setup
-:warning: **Setup script is not ready**: not use!
+Execute the following command 
+```sh
+sudo sh setup.sh
+```
+This script will create some symbolic links for each configuration. 
+TODO:
+- Check if file already exists and make backup for old file
+- Multiple OS
 
 For setting up this environment you need to execute the `setup.sh` script in the repository
 
@@ -14,6 +21,8 @@ For setting up this environment you need to execute the `setup.sh` script in the
 - kitty
 - i3
 - i3status
+- rofi
+- git
 
 
 

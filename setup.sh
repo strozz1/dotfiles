@@ -36,13 +36,29 @@ arch(){
 }
 
 move_files(){
+    home="/home/oscar"
+    echo $'Creating symbolic link for zsh terminal at \u001b[1m\u001b[34m"~/.zshrc"\u001b[0m'
+    ln -s $home/develop/dotfiles/.zshrc $home/.zshrc
+    echo $'Creating symbolic link for tmux at \u001b[1m\u001b[34m"~/.config/tmux"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/tmux $home/.config/tmux
+    echo $'Creating symbolic link for nvim at \u001b[1m\u001b[34m"~/.config/nvim"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/nvim $home/.config/nvim
+    echo $'Creating symbolic link for i3 at \u001b[1m\u001b[34m"~/.config/i3"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/i3 $home/.config/i3
+    echo $'Creating symbolic link for i3status at \u001b[1m\u001b[34m"~/.config/i3status"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/i3status $home/.config/i3status
+    echo $'Creating symbolic link for kitty at \u001b[1m\u001b[34m"~/.config/kitty"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/kitty $home/.config/kitty
 
-    echo "Updating ~/.config with configs:{'nvim', 'tmux', 'kitty'}"
-    cp -r .config ~/
-    echo "Done!"
-    echo "Updating zsh config"
-    cp .zshrc ~/
-    echo "Done!"
+    echo $'Creating symbolic link for git at \u001b[1m\u001b[34m"~/.gitconfig"\u001b[0m'
+    ln -s $home/develop/dotfiles/.gitconfig $home/.gitconfig
+    echo $'Creating symbolic link for rofi at \u001b[1m\u001b[34m"~/.config/rofi"\u001b[0m'
+    ln -s $home/develop/dotfiles/.config/rofi $home/.config/rofi
+
+
+
+
+
 }
 
 
