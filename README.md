@@ -1,5 +1,5 @@
 # DOTFILE repository for Strozz1's environment
-
+Naaa not working rn!, lazy
 
 ## Setup
 Execute the following command 
