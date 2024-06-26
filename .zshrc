@@ -74,12 +74,12 @@ plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highl
 
 source $ZSH/oh-my-zsh.sh
 alias vim=\"nvim\"
-alias pacman="sudo pacman"
+#alias pacman="sudo pacman"
 # User configuration
 
 #change monitor layout
 
-sh ~/develop/scripts/monitor_config.sh
+#sh ~/develop/scripts/monitor_config.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -89,7 +89,7 @@ sh ~/develop/scripts/monitor_config.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -104,3 +104,4 @@ sh ~/develop/scripts/monitor_config.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+export PATH="$PATH:/opt/nvim-linux64/bin"
