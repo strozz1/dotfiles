@@ -74,6 +74,7 @@ plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highl
 
 source $ZSH/oh-my-zsh.sh
 alias vim=\"nvim\"
+alias docker="sudo docker"
 #alias pacman="sudo pacman"
 # User configuration
 
@@ -105,3 +106,13 @@ alias vim=\"nvim\"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export GOPATH=$HOME/go 
+export GOROOT=/usr/local/go 
+export GOBIN=$GOPATH/bin 
+export PATH=$PATH:$GOPATH 
+export PATH=$PATH:$GOROOT
+export PATH=$PATH:/usr/local/go/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

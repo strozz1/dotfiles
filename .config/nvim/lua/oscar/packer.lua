@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 	--	  vim.cmd('colorscheme rose-pine')
 	  --end
   --})
-  --Plugin: cattpuccin
+  --Plugin: cattpuccin 
   use { "catppuccin/nvim", as = "catppuccin" }
 
   --Plugin: Treesitter
@@ -32,8 +32,6 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
   --Plugin: Undo-tree
   use('mbbill/undotree')
-  --Plugin: fugitive
-  use ('tpope/vim-fugitive')
 
   --Plugin: LSP-zero
   use {
@@ -65,7 +63,10 @@ return require('packer').startup(function(use)
       "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
   }
+  use("rafamadriz/friendly-snippets")
 
   use('ThePrimeagen/vim-be-good')
+  use('junegunn/fzf')
+  use('junegunn/fzf.vim')
 
  end)
