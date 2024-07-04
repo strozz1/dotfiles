@@ -42,9 +42,9 @@ move_files(){
     ln -s $dir/.zshrc $home/
     echo $'Creating symbolic link for tmux at "~/.tmux.conf"'
     ln -s $dir/.config/tmux/tmux.conf $home/.tmux.conf
-    ln -s $dir/.config/tmux/ $home/.tmux
+    ln -s $dir/.config/tmux/tmux $home/.tmux
     echo 'cloning tpm for tmux'
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm $dir/.config/tmux/tmux/plugin/tpm
     echo $'Creating symbolic link for nvim at "~/.config/nvim"'
     ln -s $dir/.config/nvim $home/.config/
     echo $'Creating symbolic link for kitty at "~/.config/kitty"'
