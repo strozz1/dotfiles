@@ -53,6 +53,9 @@ move_files(){
     echo $'Creating symbolic link for git at "~/.gitconfig"'
     ln -s $dir/.gitconfig $home/.gitconfig
 
+    echo $'Creating symbolic link for batcat at ~/.config/bat'
+    ln -s $dir/.config/bat $home/.config
+
 
 
 
