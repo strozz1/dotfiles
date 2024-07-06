@@ -16,7 +16,10 @@ alias docker="sudo docker"
 alias oldcat=cat
 alias cat="batcat"
 alias ls="eza --color=always --long --git --no-filesize --icons always --no-time --no-user --no-permissions"
+alias vims='nvim $(fzf --preview="batcat --color=always {}")'
 
+
+source <(fzf --zsh)
 # Eza previews
 export FZF_CTRL_T_OPTS="--preview 'batcat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} |head -200'"
@@ -31,8 +34,8 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} |head -200'"
 
 export LANG=en_US.UTF-8
 #Bat theme
-export BAT_THEME=Catppuccin Mocha
-
+export BAT_THEME=catppuccin
+spotifyd
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export GOPATH=$HOME/go 
 export GOROOT=/usr/local/go 
