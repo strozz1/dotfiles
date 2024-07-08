@@ -5,28 +5,28 @@ Naaa not working rn!, lazy
 Linux `apt install stow`
 
 MacOS `brew install stow`
-- OhmyZsh [Github repo] (https://github.com/ohmyzsh/ohmyzsh)
+- OhmyZsh [Github repo](https://github.com/ohmyzsh/ohmyzsh)
 Dowload and install
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-- Powerlevel10k [Github repo] (https://github.com/romkatv/powerlevel10k)
+- Powerlevel10k [Github repo](https://github.com/romkatv/powerlevel10k)
 Theme for Ohmyzsh
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
-- OhmyZsh autosuggestions [Github repo] (https://github.com/zsh-users/zsh-autosuggestions )
+- OhmyZsh autosuggestions [Github repo](https://github.com/zsh-users/zsh-autosuggestions )
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions 
 $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
-- OhmyZsh syntax-highlighting [Github repo] (https://github.com/zsh-users/zsh-syntax-highlighting)
+- OhmyZsh syntax-highlighting [Github repo](https://github.com/zsh-users/zsh-syntax-highlighting)
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
 $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
-- Systemd [Github repo] (https://github.com/Spotifyd/spotifyd/releases)
+- Systemd [Github repo](https://github.com/Spotifyd/spotifyd/releases)
 Download and install the binary files.
 Linux
 ```
