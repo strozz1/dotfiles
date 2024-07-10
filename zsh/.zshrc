@@ -13,8 +13,8 @@ source $ZSH/oh-my-zsh.sh
 #Alias
 alias vim=\"nvim\"
 alias docker="sudo docker"
-alias oldcat=cat
-alias batcat=bat
+alias oldcat="cat"
+alias batcat="bat"
 alias cat="batcat"
 alias ls="eza --color=always --long --git --no-filesize --icons always --no-time --no-user --no-permissions"
 alias vims='nvim $(fzf --preview="batcat --color=always {}")'
@@ -38,6 +38,7 @@ export LANG=en_US.UTF-8
 export BAT_THEME=catppuccin
 #spotifyd
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/usr/local/bin"
 export GOPATH=$HOME/go 
 export GOROOT=/usr/local/go 
 export GOBIN=$GOPATH/bin 
