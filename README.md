@@ -1,115 +1,122 @@
 # DOTFILE repository for Strozz1's environment
 Naaa not working rn!, lazy
 ## Dependecies
-- Stow [Github repo](https://github.com/aspiers/stow)
+### Stow 
+[Documentation](https://github.com/aspiers/stow)
+  
 Linux `apt install stow`
 
 MacOS `brew install stow`
-- OhmyZsh [Github repo] (https://github.com/ohmyzsh/ohmyzsh)
+### OhmyZsh 
+[Documentation](https://github.com/ohmyzsh/ohmyzsh)
+  
 Dowload and install
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-- Powerlevel10k [Github repo] (https://github.com/romkatv/powerlevel10k)
+### Powerlevel10k 
+[Documentation](https://github.com/romkatv/powerlevel10k)
+  
 Theme for Ohmyzsh
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
-- OhmyZsh autosuggestions [Github repo] (https://github.com/zsh-users/zsh-autosuggestions )
+### OhmyZsh autosuggestions 
+[Documentation](https://github.com/zsh-users/zsh-autosuggestions )
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions 
 $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
-- OhmyZsh syntax-highlighting [Github repo] (https://github.com/zsh-users/zsh-syntax-highlighting)
+### OhmyZsh syntax-highlighting 
+[Documentation](https://github.com/zsh-users/zsh-syntax-highlighting)
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
 $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
-- Systemd [Github repo] (https://github.com/Spotifyd/spotifyd/releases)
+### Spotifyd 
+[Documentation](https://github.com/Spotifyd/spotifyd/releases)
+
 Download and install the binary files.
+
 Linux
 ```
 wget https://github.com/Spotifyd/spotifyd/releases/download/v0.3.5/spotifyd-linux-default.tar.gz |
 tar spotifyd-linux-default.tar.gz |
 mv spotifyd /usr/bin/
 ```
+
 MacOS
 ```
 wget https://github.com/Spotifyd/spotifyd/releases/download/v0.3.5/spotifyd-macos-default.tar.gz
 tar -xvf https://github.com/eza-community/eza
 mv spotfiyd /usr/local/bin/
 ```
-- TPM for Tmux[Github repo](https://github.com/tmux-plugins/tpm)
+### TPM for Tmux 
+[Documentation](https://github.com/tmux-plugins/tpm)
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-- Eza [Github repo](https://github.com/eza-community/eza)
+### Tmux git 
+[Documentation](https://github.com/arl/gitmux)
+Git plugin for tmux status bar
+
+### Playerctl 
+[Documentation](https://github.com/altdesktop/playerctl)
+
+For enable player run playerctl on start runtime
+
+### Eza 
+[Documentation](https://github.com/eza-community/eza)
+
 Replacement for ls
 
 Linux `sudo apt install eza`
 
 MacOS `brew install eza`
 
-- Bat [Github repo]()
-Replacement for cat cmd
+### Bat 
+[Documentation](https://github.com/catppuccin/bat)
+
+Replacement for cat 
 
 Linux `sudo apt install bat`
 
 MacOS `brew install bat`
 
-## Setup
+Theme is installed at `.config/bat/themes`
+
+Run `batcat cache --build` for installing 
+
+For using the theme append to .zshrc `export BAT_THEME=<NAME>`
+
+## Setup file
 
 Install stow package for managing your .dotfiles
-execute 
+
+Run this command 
 ```
 stow <Config_Name> --target ~
 ```
 Config_name is the name of the folder of your different configurations.
+
 Execute the following command 
 ```sh
 sudo sh setup.sh
 ```
-
+## Current .dotfiles
 Font: Meslo Nerdfont Bold
 ### Zsh
 Using Powelevel10k for cmd style.
 
-### Bat
-Better version of Cat
-Theme is installed on .config/bat/themes
-Run 'batcat cache --build' for installing
-
-For using the theme add to .zshrc
-'export BAT_THEME=<NAME>'
-Using 'https://github.com/catppuccin/bat'
-
-### Eza
-Better version of ls
-Github 'https://github.com/eza-community/eza'
+### Nvim
+You can find the repo [here](https://neovim.io/)
 
 ### Tmux
-For tmux git, install 'https://github.com/arl/gitmux'
+You can find the repo [here](https://github.com/tmux/tmux/wiki)
 
-Spotify player:
-For enable player run playerctl on start runtime
-- playerctl 'https://github.com/altdesktop/playerctl'
-- 
-
-## Fzf
+### Fzf
 Keybind Ctrl T for preview of file/folder
-
-
-## List of dotfiles
-
-- Nvim
-- Tmux
-- zsh
-- kitty
-- i3
-- i3status
-- rofi
-- git
 
 
 
