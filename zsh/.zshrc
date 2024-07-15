@@ -14,8 +14,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=\"nvim\"
 alias docker="sudo docker"
 alias oldcat="cat"
-alias batcat="bat"
-alias cat="batcat"
+alias cat="bat"
 alias ls="eza --color=always --long --git --no-filesize --icons always --no-time --no-user --no-permissions"
 alias vims='nvim $(fzf --preview="batcat --color=always {}")'
 
@@ -35,8 +34,8 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} |head -200'"
 
 export LANG=en_US.UTF-8
 #Bat theme
-export BAT_THEME=catppuccin
-#spotifyd
+export BAT_THEME="Catppuccin Mocha"
+spotifyd
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/bin"
 export GOPATH=$HOME/go 
@@ -47,7 +46,7 @@ export PATH=$PATH:$GOROOT
 export PATH=$PATH:/usr/local/go/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
