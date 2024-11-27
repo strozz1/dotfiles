@@ -10,14 +10,22 @@ plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highl
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 source $ZSH/oh-my-zsh.sh
 
-#Alias
+#Aliases
 alias vim=\"nvim\"
-alias docker="sudo docker"
-alias oldcat="cat"
-alias cat="bat"
-alias ls="eza --color=always --long --git --no-filesize --icons always --no-time --no-user --no-permissions"
-alias vims='nvim $(fzf --preview="batcat --color=always {}")'
 
+#If on WSL windows, change ssh to .exe. THis is because I use 1password installed on windows
+ uname -a | grep -q 'microsoft' 
+if [ $? -eq 0 ]; then
+    alias ssh="ssh.exe"
+    alias ssh-add="ssh-add.exe"
+fi
+alias vims='nvim $(fzf --preview="batcat --color=always {}")'
+alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
+
+#Unussed aliases
+#alias oldcat="cat"
+#alias cat="bat"
+#alias ls="eza --color=always --long --git --no-filesize --icons always --no-time --no-user --no-permissions"
 
 source <(fzf --zsh)
 # Eza previews
@@ -33,20 +41,16 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} |head -200'"
  fi
 
 export LANG=en_US.UTF-8
-#Bat theme
 export BAT_THEME="Catppuccin Mocha"
-spotifyd
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/bin"
-export GOPATH=$HOME/go 
-export GOROOT=/usr/local/go 
-export GOBIN=$GOPATH/bin 
-export PATH=$PATH:$GOPATH 
-export PATH=$PATH:$GOROOT
-export PATH=$PATH:/usr/local/go/bin
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 source ~/.oh-my-zsh/custom/themes/powerlevel10k
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=$HOME/.local/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
