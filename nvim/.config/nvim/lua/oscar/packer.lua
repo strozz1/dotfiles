@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
 
     --Plugin multi cursor
     use('mg979/vim-visual-multi')
+    --Plugin surround: surround selection with any char
+    use('tpope/vim-surround')
     --Plugin: Autopair
     use {
         "windwp/nvim-autopairs",

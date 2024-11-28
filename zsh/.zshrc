@@ -5,25 +5,23 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-script_dir=$(dirname "$(realpath)")
-
 plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highlighting fzf)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 source $ZSH/oh-my-zsh.sh
-
-#Aliases
-alias vim=\"nvim\"
 
 #If on WSL windows, change ssh to .exe. THis is because I use 1password installed on windows
  uname -a | grep -q 'microsoft' 
 if [ $? -eq 0 ]; then
     alias ssh="ssh.exe"
     alias ssh-add="ssh-add.exe"
+    alias bat
 fi
-alias vims='nvim $(fzf --preview="cat --color=always {}")'
+#Aliases
+alias vim=\"nvim\"
+alias ta='tmux attach'
+alias vims='nvim $(fzf --preview="bat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
-source $PWD/.scripts/aliases.sh
+source ~/.scripts/aliases.sh
 
 #Unussed aliases
 #alias oldcat="cat"
