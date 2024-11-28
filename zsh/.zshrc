@@ -6,6 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+script_dir=$(dirname "$(realpath)")
+
 plugins=(git sudo history encode64 copypath zsh-autosuggestions zsh-syntax-highlighting fzf)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 source $ZSH/oh-my-zsh.sh
@@ -19,8 +21,9 @@ if [ $? -eq 0 ]; then
     alias ssh="ssh.exe"
     alias ssh-add="ssh-add.exe"
 fi
-alias vims='nvim $(fzf --preview="batcat --color=always {}")'
+alias vims='nvim $(fzf --preview="cat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
+source $PWD/.scripts/aliases.sh
 
 #Unussed aliases
 #alias oldcat="cat"
@@ -51,6 +54,6 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/.local/bin:$PATH
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
