@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function create() {
     if [ -d ~/projects/$1 ]; then
         echo "The project $1 already exists."
@@ -11,7 +10,7 @@ function create() {
 }
 
 #check if new project
-if [ $1 = '-n' ]; then
+if [[ $1 = '-n' ]]; then
     if [ $# -eq 2 ]; then
         create $2
     else
@@ -19,9 +18,11 @@ if [ $1 = '-n' ]; then
         exit -1
     fi
 else
-project=$(find ~/projects ~/configs -maxdepth 1 -mindepth 1 -type d  | fzf)
+project=$(find ~/projects ~/configs -maxdepth 1 -mindepth 1 -type d 2>/dev/null | fzf)
+if [ -z $project ]; then
+    exit 0
 fi
-
+fi
 name=$(basename $project)
 server=$(pgrep tmux)
 if  [ -z server ]; then
