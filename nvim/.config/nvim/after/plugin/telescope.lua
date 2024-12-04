@@ -1,8 +1,7 @@
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', ':Files<CR>', {})
-vim.keymap.set('n', '<C-g>', builtin.git_files, {})
-vim.keymap.set('n', '<C-s>', ':Rg<CR>',{})
-vim.keymap.set('n', '<C-b>', ':Buffers<CR>',{})
-
-
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'
+    },
+  },
+}

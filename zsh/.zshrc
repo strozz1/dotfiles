@@ -22,7 +22,7 @@ alias ta='tmux attach'
 alias vims='nvim $(fzf --preview="bat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
 source ~/.scripts/aliases.sh
-
+bindkey "^L" clear-screen
 #Unussed aliases
 #alias oldcat="cat"
 #alias cat="bat"
@@ -52,6 +52,6 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/.local/bin:$PATH
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

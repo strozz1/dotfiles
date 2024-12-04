@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -14,14 +13,6 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    --Plugin: Theme rose-pine
-    --use({
-    --  "rose-pine/neovim",
-    --as = "rose-pine",
-    --config = function()
-    --	  vim.cmd('colorscheme rose-pine')
-    --end
-    --})
     --Plugin: cattpuccin
     use { "catppuccin/nvim", as = "catppuccin" }
 
@@ -31,11 +22,14 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/playground')
     --Plugin: Undo-tree
     use('mbbill/undotree')
-    use('~/proyects/vimai/snippet-ai')
+    use { 'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
+
+
     --Plugin: LSP-zero
+    --[[
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        branch = 'v4.x',
         requires = {
             --- Uncomment the two plugins below if you want to manage the language servers from neovim
             -- {'williamboman/mason.nvim'},
@@ -49,12 +43,20 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
-
-    --Plugin: Mason
+   ]]-- 
+    --Plugin: Mason & Lspconfig
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+         'hrsh7th/cmp-nvim-lsp',
+         'hrsh7th/cmp-buffer',
+         'hrsh7th/cmp-path',
+         'hrsh7th/cmp-cmdline',
+         'hrsh7th/nvim-cmp',
+         'L3MON4D3/LuaSnip',
+         'saadparwaiz1/cmp_luasnip',
+         'j-hui/fidget.nvim'
     }
 
     --Plugin multi cursor
