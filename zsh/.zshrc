@@ -21,7 +21,6 @@ alias vim=\"nvim\"
 alias ta='tmux attach'
 alias vims='nvim $(fzf --preview="bat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
-source ~/.scripts/aliases.sh
 bindkey "^L" clear-screen
 #Unussed aliases
 #alias oldcat="cat"
@@ -48,6 +47,8 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.scripts:$PATH
+
 source ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
