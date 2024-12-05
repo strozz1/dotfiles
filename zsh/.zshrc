@@ -47,10 +47,11 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH=$HOME/.local/bin:$PATH
 source ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH=$HOME/.local/bin:$PATH
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
