@@ -1,6 +1,5 @@
-local cmp = require("cmp")        -- autocomplete
+local cmp = require("cmp") -- autocomplete
 local cmp_lsp = require("cmp_nvim_lsp")
-
 require("fidget").setup({})
 -- Mason config
 local fidget = require("fidget")
@@ -18,23 +17,30 @@ require("mason").setup({
 
 
 local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
+    "force",
+    {},
+    vim.lsp.protocol.make_client_capabilities(),
+    cmp_lsp.default_capabilities())
 -- Mason bridge config
 require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "clangd", "dockerls", "html", "eslint" },
     handlers = {
         function(server_name)
             -- setup servers
-            require("lspconfig")[server_name].setup {}
+            require("lspconfig")[server_name].setup {
+                on_attach = function(client, buffer)
+                    vim.opt.signcolumn = "yes"
+                end,
+
+            }
         end,
 
         ["clangd"] = function()
             local lspconfig = require("lspconfig")
-            lspconfig.clangd.setup{
-                on_attach = on_attach,
+            lspconfig.clangd.setup {
+                on_attach = function(client, buff)
+                    vim.opt.signcolumn = "yes"
+                end,
                 format = {
                     style = {
                         BasedOnStyle = 'LLVM',
@@ -45,19 +51,19 @@ require("mason-lspconfig").setup({
             }
         end,
         ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        runtime = { version = "Lua 5.1" },
+                        diagnostics = {
+                            globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
                         }
                     }
-                end,
+                }
+            }
+        end,
     }
 })
 
@@ -102,5 +108,3 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
-
-
