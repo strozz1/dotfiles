@@ -1,7 +1,12 @@
 local builtin = require('telescope.builtin')
-
+local toggle= false
+local buff
 local function exec()
-    local buf = vim.api.nvim_create_buf(false, "nofile")
+    if toggle == false then
+        buf = vim.api.nvim_create_buf(false, "nofile")
+        toggle=true
+    end
+     buf = vim.api.nvim_create_buf(false, "nofile")
     local window = vim.api.nvim_open_win(buf, false, {
         split = "right",
         win = 0,
@@ -23,7 +28,7 @@ vim.keymap.set('n', '<C-s>', builtin.live_grep, {})
 
 
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>ef', exec, {})
+vim.keymap.set('n', '<leader>ef', ':CCompile<CR>', {})
 vim.keymap.set("x", "<leader>p", "\"_dP")    --paste w/o copying
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- bloque abajo
