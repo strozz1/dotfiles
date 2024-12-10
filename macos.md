@@ -4,16 +4,10 @@
 Using `iTerm`
 
 ## Window manager
-Using `yabai` for the window manager
-For changing shortcuts `skhd`
-Both need to run as a service `--start-service`
+Using `aerospace` for the window manager
 
 ### Configuration
-Configs are placed in `~/.config/yabai/yabairc`
-For apply changes use `yabai --restart-service`
-
-Configs for skhd are in `~/.config/skhd/skhdrc`
-For apply changes use `yabai --restart-service`
+Configs are placed in `~/.config/aerospace`
 
 ### Some shortcuts
 For changing focus: `alt + <motion>`
