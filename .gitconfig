@@ -1,0 +1,27 @@
+[user]
+    name = strozz1
+    email = oscar.gonzalez.strozzi14@gmail.com
+    signingkey = "ADD HERE"
+[core]
+    editor = vim
+    #sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
+
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+
+[push]
+    default = simple
+
+[color]
+    ui = auto
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  #program = "mnt/C/Users/triss/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+
+[commit]
+  gpgsign = true
