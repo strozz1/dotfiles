@@ -11,10 +11,20 @@ loadMac (){
     echo mac
     /Applications/Aerospace.app/Contents/MacOS/AeroSpace
 }
+loadLinux (){
+    echo "Loading Linux Env"
+    /mnt/c/Program\ Files/glzr.io/GlazeWM/cli/glazewm.exe start --config="/home/strozzi/configs/dotfiles/glazewm/config.yaml"
+}
 
 uname -a | grep Mac >/dev/null
 if [ $? -eq 0 ]; then
     loadMac
+    exit 0
+fi
+uname -a | grep Linux >/dev/null
+
+if [ $? -eq 0 ]; then
+    loadLinux
 else
     echo "Unsupported yet..."
     exit 1

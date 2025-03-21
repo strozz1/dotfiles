@@ -48,7 +48,7 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.scripts:$PATH
-
+. "$HOME/.cargo/env"
 source ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -57,3 +57,11 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# @begin(40044009)@ - Do not edit these lines - added automatically!
+# You should customize CIAOPATH before this chunk if you place bundles in
+# places other than ~/.ciao
+if [ -x /home/strozzi/.ciaoroot/v1.24.0-m1/build/bin/ciao-env ] ; then
+  eval "$(/home/strozzi/.ciaoroot/v1.24.0-m1/build/bin/ciao-env --sh)"
+fi
+# @end(40044009)@ - End of automatically added lines.

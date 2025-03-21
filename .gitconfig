@@ -21,7 +21,7 @@
   format = ssh
 
 [gpg "ssh"]
-  #program = "mnt/C/Users/triss/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+  #program = "/mnt/c/Users/triss/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
 
 [commit]
   gpgsign = true
