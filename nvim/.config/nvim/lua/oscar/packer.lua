@@ -25,19 +25,19 @@ return require('packer').startup(function(use)
     use { 'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
 
 
-     --Plugin: Mason & Lspconfig
+    --Plugin: Mason & Lspconfig
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-         'hrsh7th/cmp-nvim-lsp',
-         'hrsh7th/cmp-buffer',
-         'hrsh7th/cmp-path',
-         'hrsh7th/cmp-cmdline',
-         'hrsh7th/nvim-cmp',
-         'L3MON4D3/LuaSnip',
-         'saadparwaiz1/cmp_luasnip',
-         'j-hui/fidget.nvim'
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp',
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        'j-hui/fidget.nvim'
     }
 
     --Plugin multi cursor
@@ -54,9 +54,14 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/vim-be-good')
     use('junegunn/fzf')
     use('junegunn/fzf.vim')
-
+    use {
+        "nvzone/typr",
+        requires = "nvzone/volt",
+        opts = {},
+        cmd = { "Typr", "TyprStats" }
+    }
     use {
         'windwp/nvim-ts-autotag',
-        config = function() require('nvim-ts-autotag').setup () end
+        config = function() require('nvim-ts-autotag').setup() end
     }
 end)
