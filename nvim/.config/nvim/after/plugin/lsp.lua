@@ -60,17 +60,28 @@ vim.lsp.config('luals', {
 vim.lsp.enable('luals')
 
 -- 68kasm server
-vim.lsp.config('kasm_lsp', {
+vim.lsp.config('kasm-lsp', {
     cmd = { "/home/strozzi/projects/lsp/target/debug/lsp" },
-    root_markers = {  },
-    filetypes = { 'asm' },
+    root_markers = { '.git' },
+    capabilities=client_capabilities,
+    filetypes = { 'asm'},
 })
-vim.lsp.enable('kasm_lsp')
+-- Set up filetype detection for assembly files
+vim.filetype.add({
+  extension = {
+    s = "asm",      -- Recognize .s files as assembly
+    S = "asm",      -- Also handle uppercase .S files
+    asm = "asm",
+  }
+})
+vim.lsp.enable('kasm-lsp')
 
 -- rust
 vim.lsp.config('rust-analyzer',{
     cmd={"rust-analyzer"},
     root_marker={ "Cargo.toml", ".git"},
+    capabilities=client_capabilities,
+    filetypes={'rust'}
 })
 vim.lsp.enable("rust-analyzer")
 
