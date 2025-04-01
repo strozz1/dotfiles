@@ -1,7 +1,4 @@
-require("fidget").setup({})
 -- Mason config
-local fidget = require("fidget")
-
 require("mason").setup({
     ui = {
         icons = {
@@ -12,98 +9,7 @@ require("mason").setup({
     }
 })
 
-virtual_lines = false
-toggle_virtual = function()
-    if virtual_lines then
-        virtual_lines = false
-        vim.diagnostic.config({ virtual_text = true })
-        vim.diagnostic.config({ virtual_lines = false })
-    else
-        virtual_lines = true
-        vim.diagnostic.config({ virtual_lines = true })
-    end
-end
-local capabilities = vim.tbl_deep_extend(
-    "force",
-    {},
-    vim.lsp.protocol.make_client_capabilities(),
-    cmp_lsp.default_capabilities())
 
--- Mason bridge config
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "clangd", "dockerls", "html", "eslint" },
-    handlers = {
-        function(server_name)
-            -- setup servers
-            require("lspconfig")[server_name].setup {
-                on_attach = function(client, buffer)
-                    vim.keymap.set("n", "<leader>ev", toggle_virtual, opts)
-                    local opts = { buffer = bufnr, remap = false, silent = false }
-                    vim.opt.signcolumn = "yes"
-                    vim.diagnostic.config({ virtual_text = true })
-                    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-                    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-                    vim.keymap.set("n", "<leader>eg", "<cmd>Telescope diagnostics<CR>", opts)
-                    vim.keymap.set("n", "<leader>ee", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-                    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-                    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-                    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-                    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-                    vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.rename() end, opts)
-                    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-                end,
-
-            }
-        end,
-
-        ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        runtime = { version = "Lua 5.1" },
-                        diagnostics = {
-                            globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                        }
-                    }
-                }
-            }
-        end,
-    }
-})
-
--- autocomplete config
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
-    window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-    }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-
-    }, {
-        { name = 'buffer' },
-    })
-})
 -- diagnosic config
 vim.diagnostic.config({
     -- update_in_insert = true,
@@ -116,3 +22,57 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
+-- autocomplete
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end,
+})
+vim.cmd("set completeopt+=noselect") -- for annoying thing
+vim.keymap.set("i","<c-y>",function ()
+    vim.lsp.completion.get()
+end)
+vim.opt.completeopt="menuone,noinsert,popup,fuzzy,preview"
+local client_capabilities= vim.tbl_deep_extend(
+    "force",
+    {},
+    vim.lsp.protocol.make_client_capabilities())
+
+
+-- servers
+vim.lsp.config('luals', {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = { '.luarc.json', '.luarc.jsonc' },
+    capabilities=client_capabilities,
+    settings = {
+        Lua = {
+            runtime = { version = "Lua 5.1" },
+            diagnostics = {
+                globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
+            }
+        }
+    }
+})
+vim.lsp.enable('luals')
+
+-- 68kasm server
+vim.lsp.config('kasm_lsp', {
+    cmd = { "/home/strozzi/projects/lsp/target/debug/lsp" },
+    root_markers = {  },
+    filetypes = { 'asm' },
+})
+vim.lsp.enable('kasm_lsp')
+
+-- rust
+vim.lsp.config('rust-analyzer',{
+    cmd={"rust-analyzer"},
+    root_marker={ "Cargo.toml", ".git"},
+})
+vim.lsp.enable("rust-analyzer")
+
+
+
