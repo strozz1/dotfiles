@@ -1,9 +1,6 @@
-local cmp = require("cmp") -- autocomplete
-local cmp_lsp = require("cmp_nvim_lsp")
 require("fidget").setup({})
 -- Mason config
 local fidget = require("fidget")
-
 
 require("mason").setup({
     ui = {
@@ -14,6 +11,18 @@ require("mason").setup({
         }
     }
 })
+
+virtual_lines = false
+toggle_virtual = function()
+    if virtual_lines then
+        virtual_lines = false
+        vim.diagnostic.config({ virtual_text = true })
+        vim.diagnostic.config({ virtual_lines = false })
+    else
+        virtual_lines = true
+        vim.diagnostic.config({ virtual_lines = true })
+    end
+end
 local capabilities = vim.tbl_deep_extend(
     "force",
     {},
@@ -28,14 +37,16 @@ require("mason-lspconfig").setup({
             -- setup servers
             require("lspconfig")[server_name].setup {
                 on_attach = function(client, buffer)
-                    local opts = { buffer = bufnr, remap = false, silent=false}
+                    vim.keymap.set("n", "<leader>ev", toggle_virtual, opts)
+                    local opts = { buffer = bufnr, remap = false, silent = false }
                     vim.opt.signcolumn = "yes"
+                    vim.diagnostic.config({ virtual_text = true })
                     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
                     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
                     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-                    vim.keymap.set("n", "<leader>eg",  "<cmd>Telescope diagnostics<CR>" , opts)
-                    vim.keymap.set("n", "<leader>ee",  "<cmd>Telescope diagnostics bufnr=0<CR>" , opts)
+                    vim.keymap.set("n", "<leader>eg", "<cmd>Telescope diagnostics<CR>", opts)
+                    vim.keymap.set("n", "<leader>ee", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
                     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
                     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
                     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
