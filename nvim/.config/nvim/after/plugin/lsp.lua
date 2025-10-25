@@ -74,16 +74,22 @@ vim.filetype.add({
     asm = "asm",
   }
 })
-vim.lsp.enable('kasm-lsp')
-
--- rust
-vim.lsp.config('rust-analyzer',{
-    cmd={"rust-analyzer"},
-    root_marker={ "Cargo.toml", ".git"},
-    capabilities=client_capabilities,
-    filetypes={'rust'}
-})
-vim.lsp.enable("rust-analyzer")
+--vim.lsp.enable('kasm-lsp')
 
 
+
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "rust_analyzer" },
+    handlers = {
+        function(server_name)
+            -- setup servers
+            require("lspconfig")[server_name].setup {
+                on_attach = function(client, buffer)
+                    capabilities = client_capabilities
+                                    end,
+
+            }
+        end
+    }
+}
 

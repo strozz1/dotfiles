@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     --Plugin: Undo-tree
     use('mbbill/undotree')
     use { 'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
-
+    use('wuelnerdotexe/vim-astro')
 
      --Plugin: Mason & Lspconfig
     use {

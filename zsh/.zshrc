@@ -21,6 +21,7 @@ alias vim=\"nvim\"
 alias ta='tmux attach'
 alias vims='nvim $(fzf --preview="bat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
+alias clr="clear"
 bindkey "^L" clear-screen
 #Unussed aliases
 #alias oldcat="cat"
@@ -65,3 +66,8 @@ if [ -x /home/strozzi/.ciaoroot/v1.24.0-m1/build/bin/ciao-env ] ; then
   eval "$(/home/strozzi/.ciaoroot/v1.24.0-m1/build/bin/ciao-env --sh)"
 fi
 # @end(40044009)@ - End of automatically added lines.
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$DOTNET_ROOT:$PATH
+
+#nix
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

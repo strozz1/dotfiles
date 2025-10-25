@@ -12,6 +12,8 @@ vim.keymap.set('n', '<leader>vh', telescope.help_tags, {})
 vim.keymap.set('n', '<C-u>', "<C-u>zz", {})
 vim.keymap.set('n', '<C-d>', "<C-d>zz", {})
 
+vim.keymap.set('n','fn',":cnext<CR>")
+vim.keymap.set('n','fp',":cprev<CR>")
 
 --vim.keymap.set('n', '<leader>ef', ':CCompile<CR>', {})
 vim.keymap.set("x", "<leader>p", "\"_dP")    --paste w/o copying
