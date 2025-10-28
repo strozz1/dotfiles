@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/oscar/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/home/oscar/.local/share/nvim/site/pack/packer/start/fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
-  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/oscar/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -205,11 +200,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oscar/.local/share/nvim/site/pack/packer/start/vim-astro",
     url = "https://github.com/wuelnerdotexe/vim-astro"
-  },
-  ["vim-be-good"] = {
-    loaded = true,
-    path = "/home/oscar/.local/share/nvim/site/pack/packer/start/vim-be-good",
-    url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-surround"] = {
     loaded = true,

@@ -44,17 +44,15 @@ return require('packer').startup(function(use)
     use('mg979/vim-visual-multi')
     --Plugin surround: surround selection with any char
     use('tpope/vim-surround')
+    use("rafamadriz/friendly-snippets")
+
+    use('junegunn/fzf')
+
     --Plugin: Autopair
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-    use("rafamadriz/friendly-snippets")
-
-    use('ThePrimeagen/vim-be-good')
-    use('junegunn/fzf')
-    use('junegunn/fzf.vim')
-
     use {
         'windwp/nvim-ts-autotag',
         config = function() require('nvim-ts-autotag').setup () end
