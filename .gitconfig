@@ -3,7 +3,7 @@
     email = oscar.gonzalez.strozzi14@gmail.com
     signingkey = "ADD HERE"
 [core]
-    editor = vim
+    editor = nvim
     #sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
 
 [alias]
