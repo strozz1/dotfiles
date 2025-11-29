@@ -34,7 +34,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -b -f
-exec --no-startup-id feh --bg-scale ~/Downloads/eren\ free.png
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -60,7 +60,7 @@ bindsym $mod+Shift+q kill
 default_border none
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id rofi -show run -config /home/oscar/.config/rofi/launchers/type-2/style-4.rasi 
+bindsym $mod+space exec --no-startup-id rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -207,6 +207,5 @@ workspace 1 output primary
 workspace 2 output DVI-D-0
 
 # change monitor position
-exec_always --no-startup-id xrandr --output DVI-D-0 --auto --left-of HDMI-A-0
-exec_always --no-startup-id feh --bg-fill /home/oscar/Pictures/gojo.jpg
+exec_always --no-startup-id ~/.config/i3/monitor.sh
 exec_always --no-startup-id picom
