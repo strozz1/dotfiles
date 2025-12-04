@@ -18,7 +18,7 @@ order+= "cpu_temperature 0"
 order += "tztime local"
 
 ethernet _first_ {
-        format_up = "%ip - Speed(%speed)"
+        format_up = "%ip - (%speed)"
         format_down = "E: down"
 }
 
@@ -40,5 +40,5 @@ memory {
 }
 
 tztime local {
-        format = "%d-%m-%Y %H:%M:%S"
+        format = "%d-%m-%Y %H:%M "
 }

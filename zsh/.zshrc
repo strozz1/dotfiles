@@ -24,6 +24,9 @@ alias ta='tmux attach'
 alias vims='nvim $(fzf --preview="bat --color=always {}")'
 alias get_idf='. $HOME/proyects/esp32/esp-idf/export.sh'
 alias clr="clear"
+alias ll="lsd -l"
+alias la="lsd -la"
+alias ls="lsd"
 bindkey "^L" clear-screen
 #Unussed aliases
 #alias oldcat="cat"
